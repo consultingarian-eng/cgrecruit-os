@@ -1,0 +1,22 @@
+# Keep secrets, local state and build output out of the image context.
+**/.env
+**/.env.*
+!**/.env.example
+**/node_modules
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.venv
+**/venv
+frontend/build
+backend/static
+.git
+.claude
+docs
+*.zip
+*.tar
+*.tgz
+*.bson
+dumps
+exports
+backups

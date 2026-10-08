@@ -1,0 +1,4 @@
+# Test-only extras (not installed in the production image).
+# A few tests run routes against an in-memory MongoDB.
+mongomock==4.3.0
+mongomock-motor==0.0.36

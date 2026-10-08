@@ -1,0 +1,93 @@
+{
+  "_readme": "Frozen company profile for the test suite. Tests load this instead of backend/company_profile.json, so editing your own profile never breaks them.",
+  "company_name": "Example Field Sales Co.",
+  "website": "https://www.example.com",
+  "contact_phone": "",
+  "contact_email": "hello@example.com",
+  "logo_url": "",
+  "role_title": "Sales Representative",
+  "work_schedule": "10:00 AM – 6:00 PM, Monday to Friday",
+  "pay_summary": "EDIT ME: describe how the role is paid (base, commission, bonuses).",
+  "about_company": "EDIT ME: two or three sentences about what your company does, who it works for and why people join.",
+  "default_office": "downtown",
+  "field_app": {
+    "_note": "Optional. If your new starters install a team app before day one, name it and give its install page. Leave blank to drop that block from the starter email.",
+    "name": "",
+    "install_url": ""
+  },
+  "offices": {
+    "downtown": {
+      "label": "Downtown",
+      "match": [
+        "downtown"
+      ],
+      "address": "100 Example Street, Example City, EX 00000",
+      "google_maps_link": "",
+      "apple_maps_link": "",
+      "sms_number": "",
+      "sheet_tab": "DOWNTOWN",
+      "sheet_columns": [
+        "we_date",
+        "interviewer",
+        "name",
+        "email",
+        "phone"
+      ],
+      "sheet_week_prefix": "WE ",
+      "sheet_attended_headers": {},
+      "partner_pin": "",
+      "starter_template": {
+        "parking_text": "On-street parking only. Public transport is recommended."
+      }
+    },
+    "riverside": {
+      "label": "Riverside",
+      "match": [
+        "riverside"
+      ],
+      "address": "200 Sample Avenue, Riverside, EX 00000",
+      "google_maps_link": "",
+      "apple_maps_link": "",
+      "sms_number": "",
+      "sheet_tab": "RIVERSIDE",
+      "sheet_columns": [
+        "we_date",
+        "name",
+        "phone",
+        "email"
+      ],
+      "sheet_week_prefix": "",
+      "sheet_attended_headers": {
+        "1": [
+          "MONDAY ATTEND"
+        ],
+        "2": [
+          "TUESDAY ATTEND"
+        ]
+      },
+      "partner_pin": "",
+      "starter_template": {
+        "parking_text": "Free parking is available on site."
+      }
+    }
+  },
+  "starter_template_defaults": {
+    "monday_start": "1:00 PM",
+    "monday_end": "5:00 PM",
+    "tuesday_start": "1:00 PM",
+    "tuesday_end": "5:00 PM",
+    "regular_schedule": "10:00 AM – 6:00 PM",
+    "dress_code": "Business smart",
+    "id_text": "Please bring a form of photo ID. Everything else is handled through digital onboarding.",
+    "research_text": "",
+    "food_text": "Snacks and refreshments will be provided.",
+    "parking_text": "",
+    "custom_notes": ""
+  },
+  "partner_feed": {
+    "_note": "Only used by the optional stage-event export at GET /api/partner/stage-events (needs PARTNER_FEED_API_KEY). Ignore it otherwise.",
+    "country": "",
+    "campaign_prefix": "",
+    "default_pin": ""
+  }
+}

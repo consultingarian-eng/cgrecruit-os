@@ -1,0 +1,12 @@
+# Railway: build the Dockerfile at the repository root (it builds the web app
+# and installs the API), then start one uvicorn process.
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# The Dockerfile's CMD starts the app on $PORT. Keep exactly ONE replica:
+# the call scheduler and the login throttle live in memory.
+healthcheckPath = "/api/"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"

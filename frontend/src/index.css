@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+    height: 100%;
+}
+
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    background: #0C0C0E;
+    color: #F8F9FA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.font-heading {
+    font-family: "Outfit", system-ui, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+@layer base {
+    :root {
+        --background: 240 5% 5%;
+        --foreground: 210 17% 98%;
+        --card: 230 7% 9%;
+        --card-foreground: 210 17% 98%;
+        --popover: 230 7% 9%;
+        --popover-foreground: 210 17% 98%;
+        --primary: 270 70% 55%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 230 7% 12%;
+        --secondary-foreground: 210 17% 98%;
+        --muted: 230 7% 12%;
+        --muted-foreground: 220 9% 60%;
+        --accent: 230 7% 14%;
+        --accent-foreground: 210 17% 98%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 230 8% 19%;
+        --input: 230 8% 19%;
+        --ring: 270 70% 55%;
+        --chart-1: 270 70% 55%;
+        --chart-2: 320 75% 60%;
+        --chart-3: 38 92% 50%;
+        --chart-4: 160 84% 39%;
+        --chart-5: 0 84% 60%;
+        --radius: 0.5rem;
+    }
+    .dark {
+        --background: 240 5% 5%;
+        --foreground: 210 17% 98%;
+        --card: 230 7% 9%;
+        --card-foreground: 210 17% 98%;
+        --popover: 230 7% 9%;
+        --popover-foreground: 210 17% 98%;
+        --primary: 270 70% 55%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 230 7% 12%;
+        --secondary-foreground: 210 17% 98%;
+        --muted: 230 7% 12%;
+        --muted-foreground: 220 9% 60%;
+        --accent: 230 7% 14%;
+        --accent-foreground: 210 17% 98%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 230 8% 19%;
+        --input: 230 8% 19%;
+        --ring: 270 70% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2A2D35; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #4A4D59; }
+
+/* Common ATS utility classes */
+.surface {
+    background: #141519;
+    border: 1px solid #2A2D35;
+    border-radius: 8px;
+}
+.surface-hover:hover {
+    background: #1D1E24;
+}
+.input-dark {
+    background: #0C0C0E;
+    border: 1px solid #2A2D35;
+    color: #F8F9FA;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    width: 100%;
+    transition: border-color 0.15s;
+    color-scheme: dark;
+}
+/* Prevent iOS Safari auto-zoom on input focus (triggered when font-size < 16px) */
+@media (max-width: 768px) {
+    .input-dark {
+        font-size: 16px;
+    }
+}
+.input-dark:focus {
+    outline: none;
+    border-color: #8B5CF6;
+    box-shadow: 0 0 0 1px #8B5CF6;
+}
+.label-overline {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: #9CA3AF;
+}
+.btn-primary {
+    background: #8B5CF6;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all 0.15s;
+}
+.btn-primary:hover { background: #7C3AED; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary {
+    background: #1D1E24;
+    color: #F8F9FA;
+    border: 1px solid #2A2D35;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all 0.15s;
+}
+.btn-secondary:hover { background: #262830; border-color: #4A4D59; }
+
+.kanban-card {
+    background: #141519;
+    border: 1px solid #2A2D35;
+    border-radius: 6px;
+    padding: 10px 12px;
+    transition: transform 0.15s, border-color 0.15s, background 0.15s;
+    cursor: pointer;
+}
+.kanban-card:hover {
+    transform: translateY(-1px);
+    border-color: #4A4D59;
+    background: #1A1B21;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+
+[data-debug-wrapper="true"] {
+    display: contents !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Brand layer — CANDIDATE-FACING pages only (Apply, Refer, Applicant
+   portal, Retry, Reschedule). Change the --cube-* colour tokens below to
+   restyle them in your brand: dark cinematic ink, magenta→purple→blue→cyan gradients,
+   Space Grotesk display / Inter body. Everything is scoped under
+   `.cube-brand` so the recruiter ATS keeps its existing look untouched.
+   ═══════════════════════════════════════════════════════════════════════ */
+.cube-brand {
+    --cube-ink: #0a0610;
+    --cube-ink-2: #0f0819;
+    --cube-surface: #160d24;
+    --cube-surface-2: #1e1233;
+    --cube-line: #3a2258;
+    --cube-magenta: #ec008c;
+    --cube-purple: #8a2bc2;
+    --cube-blue: #4353ff;
+    --cube-cyan: #22d3ee;
+    --cube-cream: #f7eefb;
+    --cube-lav: #c3b3d9;
+    --cube-dim: #93819f;
+    --cube-grad: linear-gradient(135deg, #ec008c, #c026a9 52%, #7a2a9e);
+    --cube-grad-full: linear-gradient(115deg, #ec008c, #a21caf 28%, #6d28a8 50%, #4353ff 76%, #22d3ee);
+
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--cube-ink);
+    color: var(--cube-cream);
+}
+
+.cube-brand .font-heading,
+.cube-brand h1, .cube-brand h2, .cube-brand h3 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* Gradient display text — the brand's signature move */
+.cube-grad {
+    background: var(--cube-grad-full);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Kicker — small uppercase intro line, magenta */
+.cube-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cube-magenta);
+}
+
+/* Ambient background — fixed blurred brand blobs + faint grid, like the deck */
+.cube-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.cube-bg .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(64px);
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+.cube-bg .blob.a { width: 55vw; height: 55vw; left: 60%; top: -20%; background: radial-gradient(circle, rgba(236,0,140,.5), transparent 62%); }
+.cube-bg .blob.b { width: 48vw; height: 48vw; left: -18%; top: 55%; background: radial-gradient(circle, rgba(67,83,255,.45), transparent 62%); }
+.cube-bg .blob.c { width: 36vw; height: 36vw; left: 40%; top: 70%; background: radial-gradient(circle, rgba(34,211,238,.3), transparent 62%); }
+.cube-bg .grid-tex {
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    background-image: linear-gradient(to right, rgba(255,255,255,.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size: 70px 70px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 42%, #000 25%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 42%, #000 25%, transparent 100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+    .cube-bg .blob.a { animation: cube-drift1 26s ease-in-out infinite; }
+    .cube-bg .blob.b { animation: cube-drift2 32s ease-in-out infinite; }
+    .cube-bg .blob.c { animation: cube-drift3 38s ease-in-out infinite; }
+}
+@keyframes cube-drift1 { 50% { transform: translate(-8%, 10%) scale(1.12); } }
+@keyframes cube-drift2 { 50% { transform: translate(10%, -8%) scale(1.1); } }
+@keyframes cube-drift3 { 50% { transform: translate(-6%, -10%) scale(1.15); } }
+
+/* Content above the ambient bg */
+.cube-brand .cube-content { position: relative; z-index: 1; }
+
+/* ── Scoped re-skins of the shared utility classes ── */
+.cube-brand .surface {
+    background: linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.02));
+    border: 1.5px solid var(--cube-line);
+    border-radius: 20px;
+}
+.cube-brand .input-dark {
+    background: rgba(10,6,16,.6);
+    border: 1.5px solid var(--cube-line);
+    color: var(--cube-cream);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: "Inter", system-ui, sans-serif;
+}
+.cube-brand .input-dark:focus {
+    border-color: var(--cube-magenta);
+    box-shadow: 0 0 0 1px var(--cube-magenta);
+}
+.cube-brand .input-dark::placeholder { color: var(--cube-dim); }
+.cube-brand .label-overline {
+    color: var(--cube-lav);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+}
+.cube-brand .btn-primary {
+    background: var(--cube-grad);
+    border-radius: 999px;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 22px;
+    box-shadow: 0 12px 30px -8px rgba(236,0,140,.55);
+    transition: transform .15s, box-shadow .15s, filter .15s;
+}
+.cube-brand .btn-primary:hover:not(:disabled) {
+    background: var(--cube-grad);
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 36px -8px rgba(236,0,140,.65);
+}
+.cube-brand .btn-secondary {
+    background: rgba(255,255,255,.05);
+    border: 1.5px solid var(--cube-line);
+    border-radius: 999px;
+    color: var(--cube-cream);
+}
+.cube-brand .btn-secondary:hover { border-color: var(--cube-purple); background: rgba(255,255,255,.08); }
+
+/* Ghost pill button (slots, reschedule etc.) */
+.cube-pill {
+    border: 1.5px solid var(--cube-line);
+    border-radius: 12px;
+    background: rgba(255,255,255,.03);
+    color: var(--cube-lav);
+    transition: border-color .15s, background .15s, color .15s;
+}
+.cube-pill:hover { border-color: var(--cube-purple); color: var(--cube-cream); }
+.cube-pill.selected {
+    border-color: transparent;
+    background: var(--cube-grad);
+    color: #fff;
+    box-shadow: 0 10px 26px -10px rgba(236,0,140,.6);
+}
+
+/* Scrollbar inside candidate pages */
+.cube-brand ::-webkit-scrollbar-thumb { background: var(--cube-line); }
+.cube-brand ::-webkit-scrollbar-thumb:hover { background: var(--cube-purple); }
+
+/* CubeLoader — the brand cube drawing itself in a loop (web port of the CG1
+   app's loader). The hexagon outline traces in first, then the three inner
+   edges, then the whole mark breathes out and redraws. Timing fractions match
+   the app: hex 4-52%, lines 46-64 / 56-74 / 66-84, fade out from 86%. */
+@keyframes cube-loader-hex {
+    0%, 4% { stroke-dashoffset: 292; }
+    52%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes cube-loader-l1 {
+    0%, 46% { stroke-dashoffset: 50; }
+    64%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes cube-loader-l2 {
+    0%, 56% { stroke-dashoffset: 50; }
+    74%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes cube-loader-l3 {
+    0%, 66% { stroke-dashoffset: 50; }
+    84%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes cube-loader-fade {
+    0% { opacity: 0; }
+    6%, 86% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.cube-loader-svg { animation: cube-loader-fade 2s ease-in-out infinite; }
+.cube-loader-hex {
+    stroke-dasharray: 292 292;
+    animation: cube-loader-hex 2s ease-in-out infinite;
+}
+.cube-loader-l1, .cube-loader-l2, .cube-loader-l3 { stroke-dasharray: 50 50; }
+.cube-loader-l1 { animation: cube-loader-l1 2s ease-in-out infinite; }
+.cube-loader-l2 { animation: cube-loader-l2 2s ease-in-out infinite; }
+.cube-loader-l3 { animation: cube-loader-l3 2s ease-in-out infinite; }
+
+/* iOS Safari zooms the page when a focused form control's font-size is under
+   16px — and once zoomed, the layout pans sideways and reads broken. Candidate
+   pages are chat-first on phones: every control stays at 16px at every width
+   (the desktop recruiter UI keeps its denser 13px inputs), and the page never
+   scrolls sideways. maximum-scale=1 in the viewport meta is the second lock on
+   the same door. */
+.cube-brand input,
+.cube-brand textarea,
+.cube-brand select {
+    font-size: 16px;
+}
+.cube-brand {
+    overflow-x: hidden;
+}
